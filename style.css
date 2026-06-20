@@ -107,6 +107,18 @@ body::before{
     cursor:not-allowed;
     opacity:0.7;
 }
+#eventTitle{
+    font-size:20px;
+    font-weight:700;
+    color:#5a2d0c;
+    margin:5px 0;
+}
+
+#eventSubTitle{
+    font-size:15px;
+    color:#555;
+    margin:0;
+}
 .search-box button{
     padding:12px 20px;
     background:#002147;

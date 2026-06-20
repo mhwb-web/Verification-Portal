@@ -6,7 +6,7 @@ function enableCertificateInput() {
     document.getElementById("certNo").disabled =
         !event;
 }
-
+/*
 document.getElementById("eventSelect")
 .addEventListener("change", enableCertificateInput);
 document.getElementById("eventSelect") .addEventListener("change", function () {
@@ -23,7 +23,68 @@ document.getElementById("eventSelect") .addEventListener("change", function () {
     // Clear previous verification result
     document.getElementById("result").innerHTML = "";
 
-  });
+  });*/
+
+function handleEventChange() {
+
+    const event =
+        document.getElementById("eventSelect").value;
+
+    const eventTitle =
+        document.getElementById("eventTitle");
+
+    const eventSubTitle =
+        document.getElementById("eventSubTitle");
+
+    const eventLogo =
+        document.getElementById("eventLogo");
+
+    const header =
+        document.getElementById("header");
+
+    // Clear old data
+    document.getElementById("certNo").value = "";
+    document.getElementById("result").innerHTML = "";
+
+    if(event){
+
+        const details =
+            EVENT_DETAILS[event];
+
+        eventTitle.textContent =
+            details.title;
+
+        eventSubTitle.textContent =
+            "Motilal Nehru National Institute of Technology Allahabad";
+
+        eventLogo.src =
+            details.logo;
+
+        eventLogo.style.display =
+            "block";
+
+        header.style.borderBottom =
+            `5px solid ${details.color}`;
+
+    } else {
+
+        eventTitle.textContent =
+            "Event Organized By";
+
+        eventSubTitle.textContent =
+            "Dean (Student & Faculty) Welfare";
+
+        eventLogo.style.display =
+            "none";
+
+        header.style.borderBottom =
+            "5px solid #8B4513";
+    }
+
+    document.getElementById("certNo").disabled =
+        !event;
+}
+
 async function verifyCertificate() {
 
     const event =
@@ -34,6 +95,48 @@ async function verifyCertificate() {
         alert("Please select an event");
         return;
     }
+
+
+const EVENT_DETAILS = {
+
+    mhwb: {
+
+        title:
+        "Mental Health & Well-Being (MHWB 2026)",
+
+        logo:
+        "https://your-mhwb-logo-link.png",
+
+        color:
+        "#2E7D32"
+    },
+
+    pewp: {
+
+        title:
+        "Pedagogical Excellence & Wellness Program (PEWP 2026)",
+
+        logo:
+        "https://drive.google.com/file/d/1txoD86Nb06-_fiA0Kwf_nc7WZifo0rUg/view?usp=drive_link",
+
+        color:
+        "#1565C0"
+    },
+
+    reccb: {
+
+        title:
+        "Research Excellence & Campus Culture Building (RECCB 2026)",
+
+        logo:
+        "https://drive.google.com/file/d/11udDEFrrTaCF-R2qWL-GbL_cRBJPTDFr/view?usp=drive_link",
+
+        color:
+        "#606060"
+    }
+};
+
+
 
     switch(event){
 
