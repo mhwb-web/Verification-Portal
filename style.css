@@ -65,7 +65,48 @@ body::before{
     border-radius:8px;
     font-size:16px;
 }
+.field-label{
+    display:block;
+    text-align:left;
+    font-weight:600;
+    margin-bottom:8px;
+    color:#2c3e50;
+}
+/* Event Dropdown */
 
+#eventSelect{
+    width:100%;
+    max-width:600px;
+    padding:14px 18px;
+    font-size:16px;
+    font-weight:500;
+    color:#333;
+    background:#fff;
+    border:2px solid #c8d6e5;
+    border-radius:10px;
+    outline:none;
+    cursor:pointer;
+    transition:all 0.3s ease;
+    margin-bottom:15px;
+    box-sizing:border-box;
+}
+
+#eventSelect:hover{
+    border-color:#8e44ad;
+}
+
+#eventSelect:focus{
+    border-color:#6c3483;
+    box-shadow:0 0 10px rgba(108,52,131,0.25);
+}
+
+/* Disabled State */
+
+#eventSelect:disabled{
+    background:#f5f5f5;
+    cursor:not-allowed;
+    opacity:0.7;
+}
 .search-box button{
     padding:12px 20px;
     background:#002147;
