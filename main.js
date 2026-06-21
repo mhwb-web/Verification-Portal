@@ -30,7 +30,7 @@ const EVENT_DETAILS = {
         "Research Excellence & Campus Culture Building (RECCB 2026)",
 
         logo:
-        "https://lh3.googleusercontent.com/d/11udDEFrrTaCF-R2qWL-GbL_cRBJPTDFr",
+        "https://lh3.googleusercontent.com/d/1t701aaqGVYeFNbf2qrF_U0f-S1OqgARd",
 
         color:
         "#606060"
