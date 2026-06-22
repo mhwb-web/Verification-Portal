@@ -17,12 +17,12 @@ async function verifyRECCB(){
   try {
 
    
-      const response = await fetch( 
+      const responsereccb = await fetch( 
       `${API_URL_RECCB}?certNo=${encodeURIComponent(certNo)}` );
     
 
-    const data = await response.json();
-    showResult(data);
+    const datareccb = await responsereccb.json();
+    showResultreccb(datareccb);
 
   } catch (error) {
 
@@ -38,11 +38,11 @@ async function verifyRECCB(){
   }
 }
 
-function showResult(data){
+function showResultreccb(datareccb){
 
 let html='';
 
-if(data.found){
+if(datareccb.found){
 
 html=`
 
@@ -56,65 +56,64 @@ html=`
 
 <tr>
 <td>Name</td>
-<td>${data.name}</td>
+<td>${datareccb.name}</td>
 </tr>
 
 <tr>
 <td>Institute</td>
-<td>${data.institute}</td>
+<td>${datareccb.institute}</td>
 </tr>
 
 <tr>
 <td>Certificate Number</td>
-<td>${data.certificateNo}</td>
+<td>${datareccb.certificateNo}</td>
 </tr>
 
 <tr>
 <td>Email</td>
-<td>${data.email}</td>
+<td>${datareccb.email}</td>
 </tr>
 
 <tr>
 <td>Department</td>
-<td>${data.department}</td>
+<td>${datareccb.department}</td>
 </tr>
 
 <tr>
 <td>Designation</td>
-<td>${data.designation}</td>
+<td>${datareccb.designation}</td>
 </tr>
 
 <tr>
   <td>Employee ID</td>
-  <td>${data.employeeId}</td>
+  <td>${datareccb.employeeId}</td>
 </tr>
 
 <tr>
 <td>Document ID</td>
-<td>${data.mergedDocId}</td>
+<td>${datareccb.mergedDocId}</td>
 </tr>
 
 <tr>
 <td>Document Name</td>
-<td>${data.mergedDocLink}</td>
+<td>${datareccb.mergedDocLink}</td>
 </tr>
 
 <tr>
 <td>Document Created </td>
-<td>Document successfully created on ${data.mergeStatus .split("Timestamp:")[1] ?.trim() || ""}</td>
+<td>Document successfully created on ${datareccb.mergeStatus .split("Timestamp:")[1] ?.trim() || ""}</td>
 </tr>
 <tr>
 <td>Program Attended As</td>
-<td>${data.role}</td>
+<td>${datareccb.role}</td>
 </tr>
 </table>
 
 <div class="actions">
-
 <a class="btn"
-href="mailto:mhwb@mnnit.ac.in?subject=Certificate Access Request - ${data.certificateNo}&body=Dear MHWB Team,%0D%0A%0D%0AI would like to request access to view my certificate.%0D%0A%0D%0ACertificate Number: ${data.certificateNo}%0D%0AName: ${data.name}%0D%0AInstitute: ${data.institute}%0D%0AEmail: ${data.email}%0D%0A%0D%0ARegards,"
->
-Request Certificate Access
+href="https://drive.google.com/uc?export=download&id=${datareccb.mergedDocId}"
+target="_blank">
+📥 Download Certificate
 </a>
 
 </div>

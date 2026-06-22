@@ -18,12 +18,12 @@ async function verifyPEWP(){
   try {
 
    
-      const response = await fetch( 
+      const responsepewp = await fetch( 
       `${API_URL_PEWP}?certNo=${encodeURIComponent(certNo)}` );
     
 
-    const data = await response.json();
-    showResult(data);
+    const datapewp = await responsepewp.json();
+    showResultpewp(datapewp);
 
   } catch (error) {
 
@@ -39,11 +39,11 @@ async function verifyPEWP(){
   }
 }
 
-function showResult(data){
+function showResultpewp(datapewp){
 
 let html='';
 
-if(data.found){
+if(datapewp.found){
 
 html=`
 
@@ -57,68 +57,65 @@ html=`
 
 <tr>
 <td>Name</td>
-<td>${data.name}</td>
+<td>${datapewp.name}</td>
 </tr>
 
 <tr>
 <td>Institute</td>
-<td>${data.institute}</td>
+<td>${datapewp.institute}</td>
 </tr>
 
 <tr>
 <td>Certificate Number</td>
-<td>${data.certificateNo}</td>
+<td>${datapewp.certificateNo}</td>
 </tr>
 
 <tr>
 <td>Email</td>
-<td>${data.email}</td>
+<td>${datapewp.email}</td>
 </tr>
 
 <tr>
 <td>Department</td>
-<td>${data.department}</td>
+<td>${datapewp.department}</td>
 </tr>
 
 <tr>
 <td>Designation</td>
-<td>${data.designation}</td>
+<td>${datapewp.designation}</td>
 </tr>
 
 <tr>
   <td>Employee ID</td>
-  <td>${data.employeeId}</td>
+  <td>${datapewp.employeeId}</td>
 </tr>
 
 <tr>
 <td>Document ID</td>
-<td>${data.mergedDocId}</td>
+<td>${datapewp.mergedDocId}</td>
 </tr>
 
 <tr>
 <td>Document Name</td>
-<td>${data.mergedDocLink}</td>
+<td>${datapewp.mergedDocLink}</td>
 </tr>
 
 <tr>
 <td>Document Created </td>
-<td>Document successfully created on ${data.mergeStatus .split("Timestamp:")[1] ?.trim() || ""}</td>
+<td>Document successfully created on ${datapewp.mergeStatus .split("Timestamp:")[1] ?.trim() || ""}</td>
 </tr>
 <tr>
 <td>Program Attended As</td>
-<td>${data.role}</td>
+<td>${datapewp.role}</td>
 </tr>
 </table>
 
 <div class="actions">
-
 <a class="btn"
-href="mailto:mhwb@mnnit.ac.in?subject=Certificate Access Request - ${data.certificateNo}&body=Dear MHWB Team,%0D%0A%0D%0AI would like to request access to view my certificate.%0D%0A%0D%0ACertificate Number: ${data.certificateNo}%0D%0AName: ${data.name}%0D%0AInstitute: ${data.institute}%0D%0AEmail: ${data.email}%0D%0A%0D%0ARegards,"
->
-Request Certificate Access
+href="https://drive.google.com/uc?export=download&id=${datapewp.mergedDocId}"
+target="_blank">
+📥 Download Certificate
 </a>
-
-</div>
 
 </div>
 
@@ -142,7 +139,6 @@ document.getElementById("result").innerHTML=html;
 
 }
 
-console.log("verifyPEWP =", typeof verifyPEWP);
 
 
 

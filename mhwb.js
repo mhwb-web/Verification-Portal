@@ -1,3 +1,4 @@
+console.log("MHWB file loaded");
 const API_URL =
 "https://script.google.com/macros/s/AKfycbyrW3osIqsC_Snfw3L2BIuN-jPi44NahAQlTiFd52pfJTOU3vIa_cb32Pbyhxq3RCFR/exec";
 
@@ -16,13 +17,13 @@ async function verifyMHWB() {
 
   try {
 
-    const response = await fetch(
+    const responsemhwb= await fetch(
       `${API_URL}?certNo=${encodeURIComponent(certNo)}`
     );
 
-    const data = await response.json();
+    const datamhwb = await responsemhwb.json();
 
-    showResult(data);
+    showResultmhwb(datamhwb);
 
   } catch (error) {
 
@@ -39,11 +40,11 @@ async function verifyMHWB() {
 }
 
 
-function showResult(data){
+function showResultmhwb(datamhwb){
 
 let html='';
 
-if(data.found){
+if(datamhwb.found){
 
 html=`
 
@@ -57,53 +58,53 @@ html=`
 
 <tr>
 <td>Name</td>
-<td>${data.name}</td>
+<td>${datamhwb.name}</td>
 </tr>
 
 <tr>
 <td>Institute</td>
-<td>${data.institute}</td>
+<td>${datamhwb.institute}</td>
 </tr>
 
 <tr>
 <td>Certificate Number</td>
-<td>${data.certificateNo}</td>
+<td>${datamhwb.certificateNo}</td>
 </tr>
 
 <tr>
 <td>Email</td>
-<td>${data.email}</td>
+<td>${datamhwb.email}</td>
 </tr>
 
 
 <tr>
 <td>Document ID</td>
-<td>${data.mergedDocId}</td>
+<td>${datamhwb.mergedDocId}</td>
 </tr>
 
 <tr>
 <td>Document Name</td>
-<td>${data.mergedDocLink}</td>
+<td>${datamhwb.mergedDocLink}</td>
 </tr>
 
 <tr>
 <td>Document Created </td>
-<td>Document successfully created on ${data.mergeStatus .split("Timestamp:")[1] ?.trim() || ""}</td>
+<td>Document successfully created on ${datamhwb.mergeStatus .split("Timestamp:")[1] ?.trim() || ""}</td>
 </tr>
 
 <tr>
 <td>Seminar Attended As</td>
-<td>${data.role}</td>
+<td>${datamhwb.role}</td>
 </tr>
 </table>
 
 <div class="actions">
-
 <a class="btn"
-href="mailto:mhwb@mnnit.ac.in?subject=Certificate Access Request - ${data.certificateNo}&body=Dear MHWB Team,%0D%0A%0D%0AI would like to request access to view my certificate.%0D%0A%0D%0ACertificate Number: ${data.certificateNo}%0D%0AName: ${data.name}%0D%0AInstitute: ${data.institute}%0D%0AEmail: ${data.email}%0D%0A%0D%0ARegards,"
->
-Request Certificate Access
+href="https://drive.google.com/uc?export=download&id=${datamhwb.mergedDocId}"
+target="_blank">
+📥 Download Certificate
 </a>
+
 </div>
 
 </div>
