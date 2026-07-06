@@ -34,6 +34,19 @@ const EVENT_DETAILS = {
             "#606060",
         headerColor: "#606060"
 
+    },
+    smsw: {
+
+        title:
+            "Student Mentoring Skill Workshop (SMSW 2026)",
+
+        logo:
+            "https://lh3.googleusercontent.com/d/1t701aaqGVYeFNbf2qrF_U0f-S1OqgARd",
+
+        color:
+            "#606060",
+        headerColor: "#606060"
+
     }
 };
 
@@ -66,7 +79,8 @@ function handleEventChange() {
     header.classList.remove(
         "header-mhwb",
         "header-pewp",
-        "header-reccb")
+        "header-reccb",
+        "header-smsw")
 
     const certInput =
         document.getElementById("certNo");
@@ -94,6 +108,9 @@ function handleEventChange() {
 
         if (event === "reccb") {
             header.classList.add("header-reccb");
+        }
+        if (event === "smsw") {
+            header.classList.add("header-smsw");
         }
 
         eventTitle.textContent =
@@ -164,6 +181,10 @@ async function verifyCertificate() {
         case "reccb":
             verifyRECCB();
             break;
+        case "smsw":
+            verifysmsw();
+            break;
+
     }
 }
 

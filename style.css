@@ -43,6 +43,9 @@ body::before{
 .header-reccb{
     background:linear-gradient(135deg,#5d4037,#8d6e63);
 }
+.header-smsw{
+    background:linear-gradient(135deg,#773ce4,#4206f6);
+}
 .logo{
     height:90px;
 }
