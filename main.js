@@ -41,11 +41,11 @@ const EVENT_DETAILS = {
             "Student Mentoring Skill Workshop (SMSW 2026)",
 
         logo:
-            "https://lh3.googleusercontent.com/d/1t701aaqGVYeFNbf2qrF_U0f-S1OqgARd",
+            "https://lh3.googleusercontent.com/d/1K40v_xuCoqHWpjlKw4PEH0gUB94FitbE",
 
         color:
-            "#606060",
-        headerColor: "#606060"
+            "#855fec",
+        headerColor: "#6215fc"
 
     }
 };
